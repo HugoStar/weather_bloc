@@ -1,0 +1,11 @@
+include: package:surf_lint_rules/analysis_options.yaml
+
+linter:
+  rules:
+
+analyzer:
+  exclude: 
+    - '**.g.dart'
+    - '**.freezed.dart'
+  errors:
+    invalid_annotation_target: ignore
