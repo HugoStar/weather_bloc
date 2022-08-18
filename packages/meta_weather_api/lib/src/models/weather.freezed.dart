@@ -23,7 +23,7 @@ mixin _$Weather {
   @JsonKey(name: Weather.kWeatherCoord)
   Coord get coord => throw _privateConstructorUsedError;
   @JsonKey(name: Weather.kWeatherWeatherData)
-  List<WeatherData> get weather => throw _privateConstructorUsedError;
+  List<WeatherData> get weatherData => throw _privateConstructorUsedError;
   @JsonKey(name: Weather.kWeatherBase)
   String get base => throw _privateConstructorUsedError;
   @JsonKey(name: Weather.kWeatherMain)
@@ -58,7 +58,7 @@ abstract class $WeatherCopyWith<$Res> {
       _$WeatherCopyWithImpl<$Res>;
   $Res call(
       {@JsonKey(name: Weather.kWeatherCoord) Coord coord,
-      @JsonKey(name: Weather.kWeatherWeatherData) List<WeatherData> weather,
+      @JsonKey(name: Weather.kWeatherWeatherData) List<WeatherData> weatherData,
       @JsonKey(name: Weather.kWeatherBase) String base,
       @JsonKey(name: Weather.kWeatherMain) Main main,
       @JsonKey(name: Weather.kWeatherVisibility) int visibility,
@@ -89,7 +89,7 @@ class _$WeatherCopyWithImpl<$Res> implements $WeatherCopyWith<$Res> {
   @override
   $Res call({
     Object? coord = freezed,
-    Object? weather = freezed,
+    Object? weatherData = freezed,
     Object? base = freezed,
     Object? main = freezed,
     Object? visibility = freezed,
@@ -107,9 +107,9 @@ class _$WeatherCopyWithImpl<$Res> implements $WeatherCopyWith<$Res> {
           ? _value.coord
           : coord // ignore: cast_nullable_to_non_nullable
               as Coord,
-      weather: weather == freezed
-          ? _value.weather
-          : weather // ignore: cast_nullable_to_non_nullable
+      weatherData: weatherData == freezed
+          ? _value.weatherData
+          : weatherData // ignore: cast_nullable_to_non_nullable
               as List<WeatherData>,
       base: base == freezed
           ? _value.base
@@ -202,7 +202,7 @@ abstract class _$$_WeatherCopyWith<$Res> implements $WeatherCopyWith<$Res> {
   @override
   $Res call(
       {@JsonKey(name: Weather.kWeatherCoord) Coord coord,
-      @JsonKey(name: Weather.kWeatherWeatherData) List<WeatherData> weather,
+      @JsonKey(name: Weather.kWeatherWeatherData) List<WeatherData> weatherData,
       @JsonKey(name: Weather.kWeatherBase) String base,
       @JsonKey(name: Weather.kWeatherMain) Main main,
       @JsonKey(name: Weather.kWeatherVisibility) int visibility,
@@ -239,7 +239,7 @@ class __$$_WeatherCopyWithImpl<$Res> extends _$WeatherCopyWithImpl<$Res>
   @override
   $Res call({
     Object? coord = freezed,
-    Object? weather = freezed,
+    Object? weatherData = freezed,
     Object? base = freezed,
     Object? main = freezed,
     Object? visibility = freezed,
@@ -257,9 +257,9 @@ class __$$_WeatherCopyWithImpl<$Res> extends _$WeatherCopyWithImpl<$Res>
           ? _value.coord
           : coord // ignore: cast_nullable_to_non_nullable
               as Coord,
-      weather: weather == freezed
-          ? _value._weather
-          : weather // ignore: cast_nullable_to_non_nullable
+      weatherData: weatherData == freezed
+          ? _value._weatherData
+          : weatherData // ignore: cast_nullable_to_non_nullable
               as List<WeatherData>,
       base: base == freezed
           ? _value.base
@@ -316,7 +316,7 @@ class _$_Weather implements _Weather {
       {@JsonKey(name: Weather.kWeatherCoord)
           required this.coord,
       @JsonKey(name: Weather.kWeatherWeatherData)
-          required final List<WeatherData> weather,
+          required final List<WeatherData> weatherData,
       @JsonKey(name: Weather.kWeatherBase)
           required this.base,
       @JsonKey(name: Weather.kWeatherMain)
@@ -339,7 +339,7 @@ class _$_Weather implements _Weather {
           required this.name,
       @JsonKey(name: Weather.kWeatherCod)
           required this.cod})
-      : _weather = weather;
+      : _weatherData = weatherData;
 
   factory _$_Weather.fromJson(Map<String, dynamic> json) =>
       _$$_WeatherFromJson(json);
@@ -347,12 +347,12 @@ class _$_Weather implements _Weather {
   @override
   @JsonKey(name: Weather.kWeatherCoord)
   final Coord coord;
-  final List<WeatherData> _weather;
+  final List<WeatherData> _weatherData;
   @override
   @JsonKey(name: Weather.kWeatherWeatherData)
-  List<WeatherData> get weather {
+  List<WeatherData> get weatherData {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_weather);
+    return EqualUnmodifiableListView(_weatherData);
   }
 
   @override
@@ -391,7 +391,7 @@ class _$_Weather implements _Weather {
 
   @override
   String toString() {
-    return 'Weather(coord: $coord, weather: $weather, base: $base, main: $main, visibility: $visibility, wind: $wind, clouds: $clouds, dt: $dt, sys: $sys, timezone: $timezone, id: $id, name: $name, cod: $cod)';
+    return 'Weather(coord: $coord, weatherData: $weatherData, base: $base, main: $main, visibility: $visibility, wind: $wind, clouds: $clouds, dt: $dt, sys: $sys, timezone: $timezone, id: $id, name: $name, cod: $cod)';
   }
 
   @override
@@ -400,7 +400,8 @@ class _$_Weather implements _Weather {
         (other.runtimeType == runtimeType &&
             other is _$_Weather &&
             const DeepCollectionEquality().equals(other.coord, coord) &&
-            const DeepCollectionEquality().equals(other._weather, _weather) &&
+            const DeepCollectionEquality()
+                .equals(other._weatherData, _weatherData) &&
             const DeepCollectionEquality().equals(other.base, base) &&
             const DeepCollectionEquality().equals(other.main, main) &&
             const DeepCollectionEquality()
@@ -420,7 +421,7 @@ class _$_Weather implements _Weather {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(coord),
-      const DeepCollectionEquality().hash(_weather),
+      const DeepCollectionEquality().hash(_weatherData),
       const DeepCollectionEquality().hash(base),
       const DeepCollectionEquality().hash(main),
       const DeepCollectionEquality().hash(visibility),
@@ -451,7 +452,7 @@ abstract class _Weather implements Weather {
       {@JsonKey(name: Weather.kWeatherCoord)
           required final Coord coord,
       @JsonKey(name: Weather.kWeatherWeatherData)
-          required final List<WeatherData> weather,
+          required final List<WeatherData> weatherData,
       @JsonKey(name: Weather.kWeatherBase)
           required final String base,
       @JsonKey(name: Weather.kWeatherMain)
@@ -482,7 +483,7 @@ abstract class _Weather implements Weather {
   Coord get coord;
   @override
   @JsonKey(name: Weather.kWeatherWeatherData)
-  List<WeatherData> get weather;
+  List<WeatherData> get weatherData;
   @override
   @JsonKey(name: Weather.kWeatherBase)
   String get base;

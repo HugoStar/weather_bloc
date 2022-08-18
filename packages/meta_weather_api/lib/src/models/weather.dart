@@ -23,7 +23,7 @@ class Weather with _$Weather {
   const factory Weather({
     @JsonKey(name: Weather.kWeatherCoord) required Coord coord,
     @JsonKey(name: Weather.kWeatherWeatherData)
-        required List<WeatherData> weather,
+        required List<WeatherData> weatherData,
     @JsonKey(name: Weather.kWeatherBase) required String base,
     @JsonKey(name: Weather.kWeatherMain) required Main main,
     @JsonKey(name: Weather.kWeatherVisibility) required int visibility,

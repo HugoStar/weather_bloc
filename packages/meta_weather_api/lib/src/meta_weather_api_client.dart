@@ -13,6 +13,7 @@ class WeatherNotFoundFailure implements Exception {}
 class MetaWeatherApiClient {
   static const _baseUrl = 'https://api.openweathermap.org/data';
   static const _apiKey = 'd297b4fcef2a106449307b67dbbba4f5';
+
   final Dio _dioClient;
 
   /// {@macro meta_weather_api_client}
