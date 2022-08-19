@@ -16,6 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Weather {
+  int get id => throw _privateConstructorUsedError;
   String get location => throw _privateConstructorUsedError;
   double get temperature => throw _privateConstructorUsedError;
   WeatherCondition get condition => throw _privateConstructorUsedError;
@@ -28,7 +29,11 @@ mixin _$Weather {
 abstract class $WeatherCopyWith<$Res> {
   factory $WeatherCopyWith(Weather value, $Res Function(Weather) then) =
       _$WeatherCopyWithImpl<$Res>;
-  $Res call({String location, double temperature, WeatherCondition condition});
+  $Res call(
+      {int id,
+      String location,
+      double temperature,
+      WeatherCondition condition});
 }
 
 /// @nodoc
@@ -41,11 +46,16 @@ class _$WeatherCopyWithImpl<$Res> implements $WeatherCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? location = freezed,
     Object? temperature = freezed,
     Object? condition = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       location: location == freezed
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -68,7 +78,11 @@ abstract class _$$_WeatherCopyWith<$Res> implements $WeatherCopyWith<$Res> {
           _$_Weather value, $Res Function(_$_Weather) then) =
       __$$_WeatherCopyWithImpl<$Res>;
   @override
-  $Res call({String location, double temperature, WeatherCondition condition});
+  $Res call(
+      {int id,
+      String location,
+      double temperature,
+      WeatherCondition condition});
 }
 
 /// @nodoc
@@ -82,11 +96,16 @@ class __$$_WeatherCopyWithImpl<$Res> extends _$WeatherCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? location = freezed,
     Object? temperature = freezed,
     Object? condition = freezed,
   }) {
     return _then(_$_Weather(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       location: location == freezed
           ? _value.location
           : location // ignore: cast_nullable_to_non_nullable
@@ -107,10 +126,13 @@ class __$$_WeatherCopyWithImpl<$Res> extends _$WeatherCopyWithImpl<$Res>
 
 class _$_Weather implements _Weather {
   const _$_Weather(
-      {required this.location,
+      {required this.id,
+      required this.location,
       required this.temperature,
       required this.condition});
 
+  @override
+  final int id;
   @override
   final String location;
   @override
@@ -120,7 +142,7 @@ class _$_Weather implements _Weather {
 
   @override
   String toString() {
-    return 'Weather(location: $location, temperature: $temperature, condition: $condition)';
+    return 'Weather(id: $id, location: $location, temperature: $temperature, condition: $condition)';
   }
 
   @override
@@ -128,6 +150,7 @@ class _$_Weather implements _Weather {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_Weather &&
+            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.location, location) &&
             const DeepCollectionEquality()
                 .equals(other.temperature, temperature) &&
@@ -137,6 +160,7 @@ class _$_Weather implements _Weather {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(location),
       const DeepCollectionEquality().hash(temperature),
       const DeepCollectionEquality().hash(condition));
@@ -149,10 +173,13 @@ class _$_Weather implements _Weather {
 
 abstract class _Weather implements Weather {
   const factory _Weather(
-      {required final String location,
+      {required final int id,
+      required final String location,
       required final double temperature,
       required final WeatherCondition condition}) = _$_Weather;
 
+  @override
+  int get id;
   @override
   String get location;
   @override

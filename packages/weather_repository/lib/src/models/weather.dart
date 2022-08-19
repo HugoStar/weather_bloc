@@ -45,12 +45,14 @@ extension ToWeatherCondition on String {
 @freezed
 class Weather with _$Weather {
   static const empty = Weather(
+    id: -1,
     condition: WeatherCondition.unknown,
     temperature: 0,
     location: '--',
   );
 
   const factory Weather({
+    required int id,
     required String location,
     required double temperature,
     required WeatherCondition condition,
