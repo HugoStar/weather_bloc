@@ -1,12 +1,11 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/theme/cubit/theme_cubit.dart';
 import 'package:weather_app/weather/cubit/weather_cubit.dart';
 import 'package:weather_app/weather/cubit/weather_state.dart';
+import 'package:weather_app/weather/search_page.dart';
 import 'package:weather_repository/weather_repository.dart';
 
 class WeatherPage extends StatelessWidget {
@@ -34,12 +33,6 @@ class _WeatherViewState extends State<WeatherView> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Flutter Weather'),
-        actions: [
-          IconButton(
-            onPressed: () => log('Hello'),
-            icon: const Icon(Icons.settings),
-          ),
-        ],
       ),
       body: Center(
         child: BlocConsumer<WeatherCubit, WeatherState>(
@@ -65,7 +58,11 @@ class _WeatherViewState extends State<WeatherView> {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.search),
         onPressed: () async {
-          log('Show city search');
+          final city = await Navigator.of(context).push(SearchPage.route());
+          if (!mounted) return;
+          await context
+              .read<WeatherCubit>()
+              .fetchWeatherForCityName(cityName: city);
         },
       ),
     );
