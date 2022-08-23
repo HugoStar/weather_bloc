@@ -36,7 +36,7 @@ class MetaWeatherApiClient {
   }
 
   Future<Weather> _getWeather({required String path}) async {
-    final weatherResponse = await _dioClient.get<Map<String, Object>>(path);
+    final weatherResponse = await _dioClient.get<Map<String, Object?>>(path);
     if (weatherResponse.statusCode != 200) {
       throw WeatherRequestFailure();
     }

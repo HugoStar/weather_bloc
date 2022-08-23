@@ -74,8 +74,8 @@ _$_Main _$$_MainFromJson(Map<String, dynamic> json) => _$_Main(
       tempMax: (json['temp_max'] as num).toDouble(),
       pressure: json['pressure'] as int,
       humidity: json['humidity'] as int,
-      seaLevel: json['sea_level'] as int,
-      grndLevel: json['grnd_level'] as int,
+      grndLevel: json['grnd_level'] as int?,
+      seaLevel: json['sea_level'] as int?,
     );
 
 Map<String, dynamic> _$$_MainToJson(_$_Main instance) => <String, dynamic>{
@@ -85,14 +85,14 @@ Map<String, dynamic> _$$_MainToJson(_$_Main instance) => <String, dynamic>{
       'temp_max': instance.tempMax,
       'pressure': instance.pressure,
       'humidity': instance.humidity,
-      'sea_level': instance.seaLevel,
       'grnd_level': instance.grndLevel,
+      'sea_level': instance.seaLevel,
     };
 
 _$_Wind _$$_WindFromJson(Map<String, dynamic> json) => _$_Wind(
       speed: (json['speed'] as num).toDouble(),
       deg: json['deg'] as int,
-      gust: (json['gust'] as num).toDouble(),
+      gust: (json['gust'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$$_WindToJson(_$_Wind instance) => <String, dynamic>{

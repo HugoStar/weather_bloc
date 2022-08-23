@@ -90,8 +90,8 @@ class Main with _$Main {
     @JsonKey(name: Main.kMainTempMax) required double tempMax,
     @JsonKey(name: Main.kMainPressure) required int pressure,
     @JsonKey(name: Main.kMainHumidity) required int humidity,
-    @JsonKey(name: Main.kMainSeaLevel) required int seaLevel,
-    @JsonKey(name: Main.kMainGrndLevel) required int grndLevel,
+    @JsonKey(name: Main.kMainGrndLevel) int? grndLevel,
+    @JsonKey(name: Main.kMainSeaLevel) int? seaLevel,
   }) = _Main;
 
   factory Main.fromJson(Map<String, Object?> json) => _$MainFromJson(json);
@@ -106,7 +106,7 @@ class Wind with _$Wind {
   const factory Wind({
     @JsonKey(name: Wind.kWindSpeed) required double speed,
     @JsonKey(name: Wind.kWindDeg) required int deg,
-    @JsonKey(name: Wind.kWindGust) required double gust,
+    @JsonKey(name: Wind.kWindGust) double? gust,
   }) = _Wind;
 
   factory Wind.fromJson(Map<String, Object?> json) => _$WindFromJson(json);

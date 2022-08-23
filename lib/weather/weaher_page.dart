@@ -1,11 +1,13 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app/theme/cubit/theme_cubit.dart';
 import 'package:weather_app/weather/cubit/weather_cubit.dart';
 import 'package:weather_app/weather/cubit/weather_state.dart';
 import 'package:weather_app/weather/search_page.dart';
+import 'package:weather_app/weather/weather_screens/weather_empty.dart';
+import 'package:weather_app/weather/weather_screens/weather_error.dart';
+import 'package:weather_app/weather/weather_screens/weather_loading.dart';
+import 'package:weather_app/weather/weather_screens/weather_populated.dart';
 import 'package:weather_repository/weather_repository.dart';
 
 class WeatherPage extends StatelessWidget {
@@ -44,13 +46,17 @@ class _WeatherViewState extends State<WeatherView> {
           builder: (context, state) {
             switch (state.status) {
               case WeatherStatus.initial:
-                return Container();
+                return const WeatherEmpty();
               case WeatherStatus.loading:
-                return Container();
+                return const WeatherLoading();
               case WeatherStatus.success:
-                return Container();
+                return WeatherPopulated(
+                  onRefresh: () =>
+                      context.read<WeatherCubit>().refreshWeather(),
+                  weather: state.weather!,
+                );
               case WeatherStatus.failure:
-                return Container();
+                return const WeatherError();
             }
           },
         ),

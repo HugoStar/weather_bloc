@@ -916,10 +916,10 @@ mixin _$Main {
   int get pressure => throw _privateConstructorUsedError;
   @JsonKey(name: Main.kMainHumidity)
   int get humidity => throw _privateConstructorUsedError;
-  @JsonKey(name: Main.kMainSeaLevel)
-  int get seaLevel => throw _privateConstructorUsedError;
   @JsonKey(name: Main.kMainGrndLevel)
-  int get grndLevel => throw _privateConstructorUsedError;
+  int? get grndLevel => throw _privateConstructorUsedError;
+  @JsonKey(name: Main.kMainSeaLevel)
+  int? get seaLevel => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -937,8 +937,8 @@ abstract class $MainCopyWith<$Res> {
       @JsonKey(name: Main.kMainTempMax) double tempMax,
       @JsonKey(name: Main.kMainPressure) int pressure,
       @JsonKey(name: Main.kMainHumidity) int humidity,
-      @JsonKey(name: Main.kMainSeaLevel) int seaLevel,
-      @JsonKey(name: Main.kMainGrndLevel) int grndLevel});
+      @JsonKey(name: Main.kMainGrndLevel) int? grndLevel,
+      @JsonKey(name: Main.kMainSeaLevel) int? seaLevel});
 }
 
 /// @nodoc
@@ -957,8 +957,8 @@ class _$MainCopyWithImpl<$Res> implements $MainCopyWith<$Res> {
     Object? tempMax = freezed,
     Object? pressure = freezed,
     Object? humidity = freezed,
-    Object? seaLevel = freezed,
     Object? grndLevel = freezed,
+    Object? seaLevel = freezed,
   }) {
     return _then(_value.copyWith(
       temp: temp == freezed
@@ -985,14 +985,14 @@ class _$MainCopyWithImpl<$Res> implements $MainCopyWith<$Res> {
           ? _value.humidity
           : humidity // ignore: cast_nullable_to_non_nullable
               as int,
-      seaLevel: seaLevel == freezed
-          ? _value.seaLevel
-          : seaLevel // ignore: cast_nullable_to_non_nullable
-              as int,
       grndLevel: grndLevel == freezed
           ? _value.grndLevel
           : grndLevel // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
+      seaLevel: seaLevel == freezed
+          ? _value.seaLevel
+          : seaLevel // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -1009,8 +1009,8 @@ abstract class _$$_MainCopyWith<$Res> implements $MainCopyWith<$Res> {
       @JsonKey(name: Main.kMainTempMax) double tempMax,
       @JsonKey(name: Main.kMainPressure) int pressure,
       @JsonKey(name: Main.kMainHumidity) int humidity,
-      @JsonKey(name: Main.kMainSeaLevel) int seaLevel,
-      @JsonKey(name: Main.kMainGrndLevel) int grndLevel});
+      @JsonKey(name: Main.kMainGrndLevel) int? grndLevel,
+      @JsonKey(name: Main.kMainSeaLevel) int? seaLevel});
 }
 
 /// @nodoc
@@ -1030,8 +1030,8 @@ class __$$_MainCopyWithImpl<$Res> extends _$MainCopyWithImpl<$Res>
     Object? tempMax = freezed,
     Object? pressure = freezed,
     Object? humidity = freezed,
-    Object? seaLevel = freezed,
     Object? grndLevel = freezed,
+    Object? seaLevel = freezed,
   }) {
     return _then(_$_Main(
       temp: temp == freezed
@@ -1058,14 +1058,14 @@ class __$$_MainCopyWithImpl<$Res> extends _$MainCopyWithImpl<$Res>
           ? _value.humidity
           : humidity // ignore: cast_nullable_to_non_nullable
               as int,
-      seaLevel: seaLevel == freezed
-          ? _value.seaLevel
-          : seaLevel // ignore: cast_nullable_to_non_nullable
-              as int,
       grndLevel: grndLevel == freezed
           ? _value.grndLevel
           : grndLevel // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
+      seaLevel: seaLevel == freezed
+          ? _value.seaLevel
+          : seaLevel // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -1080,8 +1080,8 @@ class _$_Main implements _Main {
       @JsonKey(name: Main.kMainTempMax) required this.tempMax,
       @JsonKey(name: Main.kMainPressure) required this.pressure,
       @JsonKey(name: Main.kMainHumidity) required this.humidity,
-      @JsonKey(name: Main.kMainSeaLevel) required this.seaLevel,
-      @JsonKey(name: Main.kMainGrndLevel) required this.grndLevel});
+      @JsonKey(name: Main.kMainGrndLevel) this.grndLevel,
+      @JsonKey(name: Main.kMainSeaLevel) this.seaLevel});
 
   factory _$_Main.fromJson(Map<String, dynamic> json) => _$$_MainFromJson(json);
 
@@ -1104,15 +1104,15 @@ class _$_Main implements _Main {
   @JsonKey(name: Main.kMainHumidity)
   final int humidity;
   @override
-  @JsonKey(name: Main.kMainSeaLevel)
-  final int seaLevel;
-  @override
   @JsonKey(name: Main.kMainGrndLevel)
-  final int grndLevel;
+  final int? grndLevel;
+  @override
+  @JsonKey(name: Main.kMainSeaLevel)
+  final int? seaLevel;
 
   @override
   String toString() {
-    return 'Main(temp: $temp, feelsLike: $feelsLike, tempMin: $tempMin, tempMax: $tempMax, pressure: $pressure, humidity: $humidity, seaLevel: $seaLevel, grndLevel: $grndLevel)';
+    return 'Main(temp: $temp, feelsLike: $feelsLike, tempMin: $tempMin, tempMax: $tempMax, pressure: $pressure, humidity: $humidity, grndLevel: $grndLevel, seaLevel: $seaLevel)';
   }
 
   @override
@@ -1126,8 +1126,8 @@ class _$_Main implements _Main {
             const DeepCollectionEquality().equals(other.tempMax, tempMax) &&
             const DeepCollectionEquality().equals(other.pressure, pressure) &&
             const DeepCollectionEquality().equals(other.humidity, humidity) &&
-            const DeepCollectionEquality().equals(other.seaLevel, seaLevel) &&
-            const DeepCollectionEquality().equals(other.grndLevel, grndLevel));
+            const DeepCollectionEquality().equals(other.grndLevel, grndLevel) &&
+            const DeepCollectionEquality().equals(other.seaLevel, seaLevel));
   }
 
   @JsonKey(ignore: true)
@@ -1140,8 +1140,8 @@ class _$_Main implements _Main {
       const DeepCollectionEquality().hash(tempMax),
       const DeepCollectionEquality().hash(pressure),
       const DeepCollectionEquality().hash(humidity),
-      const DeepCollectionEquality().hash(seaLevel),
-      const DeepCollectionEquality().hash(grndLevel));
+      const DeepCollectionEquality().hash(grndLevel),
+      const DeepCollectionEquality().hash(seaLevel));
 
   @JsonKey(ignore: true)
   @override
@@ -1158,15 +1158,14 @@ class _$_Main implements _Main {
 
 abstract class _Main implements Main {
   const factory _Main(
-          {@JsonKey(name: Main.kMainTemp) required final double temp,
-          @JsonKey(name: Main.kMainFeelsLike) required final double feelsLike,
-          @JsonKey(name: Main.kMainTempMin) required final double tempMin,
-          @JsonKey(name: Main.kMainTempMax) required final double tempMax,
-          @JsonKey(name: Main.kMainPressure) required final int pressure,
-          @JsonKey(name: Main.kMainHumidity) required final int humidity,
-          @JsonKey(name: Main.kMainSeaLevel) required final int seaLevel,
-          @JsonKey(name: Main.kMainGrndLevel) required final int grndLevel}) =
-      _$_Main;
+      {@JsonKey(name: Main.kMainTemp) required final double temp,
+      @JsonKey(name: Main.kMainFeelsLike) required final double feelsLike,
+      @JsonKey(name: Main.kMainTempMin) required final double tempMin,
+      @JsonKey(name: Main.kMainTempMax) required final double tempMax,
+      @JsonKey(name: Main.kMainPressure) required final int pressure,
+      @JsonKey(name: Main.kMainHumidity) required final int humidity,
+      @JsonKey(name: Main.kMainGrndLevel) final int? grndLevel,
+      @JsonKey(name: Main.kMainSeaLevel) final int? seaLevel}) = _$_Main;
 
   factory _Main.fromJson(Map<String, dynamic> json) = _$_Main.fromJson;
 
@@ -1189,11 +1188,11 @@ abstract class _Main implements Main {
   @JsonKey(name: Main.kMainHumidity)
   int get humidity;
   @override
-  @JsonKey(name: Main.kMainSeaLevel)
-  int get seaLevel;
-  @override
   @JsonKey(name: Main.kMainGrndLevel)
-  int get grndLevel;
+  int? get grndLevel;
+  @override
+  @JsonKey(name: Main.kMainSeaLevel)
+  int? get seaLevel;
   @override
   @JsonKey(ignore: true)
   _$$_MainCopyWith<_$_Main> get copyWith => throw _privateConstructorUsedError;
@@ -1210,7 +1209,7 @@ mixin _$Wind {
   @JsonKey(name: Wind.kWindDeg)
   int get deg => throw _privateConstructorUsedError;
   @JsonKey(name: Wind.kWindGust)
-  double get gust => throw _privateConstructorUsedError;
+  double? get gust => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -1224,7 +1223,7 @@ abstract class $WindCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: Wind.kWindSpeed) double speed,
       @JsonKey(name: Wind.kWindDeg) int deg,
-      @JsonKey(name: Wind.kWindGust) double gust});
+      @JsonKey(name: Wind.kWindGust) double? gust});
 }
 
 /// @nodoc
@@ -1253,7 +1252,7 @@ class _$WindCopyWithImpl<$Res> implements $WindCopyWith<$Res> {
       gust: gust == freezed
           ? _value.gust
           : gust // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ));
   }
 }
@@ -1266,7 +1265,7 @@ abstract class _$$_WindCopyWith<$Res> implements $WindCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: Wind.kWindSpeed) double speed,
       @JsonKey(name: Wind.kWindDeg) int deg,
-      @JsonKey(name: Wind.kWindGust) double gust});
+      @JsonKey(name: Wind.kWindGust) double? gust});
 }
 
 /// @nodoc
@@ -1296,7 +1295,7 @@ class __$$_WindCopyWithImpl<$Res> extends _$WindCopyWithImpl<$Res>
       gust: gust == freezed
           ? _value.gust
           : gust // ignore: cast_nullable_to_non_nullable
-              as double,
+              as double?,
     ));
   }
 }
@@ -1307,7 +1306,7 @@ class _$_Wind implements _Wind {
   const _$_Wind(
       {@JsonKey(name: Wind.kWindSpeed) required this.speed,
       @JsonKey(name: Wind.kWindDeg) required this.deg,
-      @JsonKey(name: Wind.kWindGust) required this.gust});
+      @JsonKey(name: Wind.kWindGust) this.gust});
 
   factory _$_Wind.fromJson(Map<String, dynamic> json) => _$$_WindFromJson(json);
 
@@ -1319,7 +1318,7 @@ class _$_Wind implements _Wind {
   final int deg;
   @override
   @JsonKey(name: Wind.kWindGust)
-  final double gust;
+  final double? gust;
 
   @override
   String toString() {
@@ -1361,7 +1360,7 @@ abstract class _Wind implements Wind {
   const factory _Wind(
       {@JsonKey(name: Wind.kWindSpeed) required final double speed,
       @JsonKey(name: Wind.kWindDeg) required final int deg,
-      @JsonKey(name: Wind.kWindGust) required final double gust}) = _$_Wind;
+      @JsonKey(name: Wind.kWindGust) final double? gust}) = _$_Wind;
 
   factory _Wind.fromJson(Map<String, dynamic> json) = _$_Wind.fromJson;
 
@@ -1373,7 +1372,7 @@ abstract class _Wind implements Wind {
   int get deg;
   @override
   @JsonKey(name: Wind.kWindGust)
-  double get gust;
+  double? get gust;
   @override
   @JsonKey(ignore: true)
   _$$_WindCopyWith<_$_Wind> get copyWith => throw _privateConstructorUsedError;

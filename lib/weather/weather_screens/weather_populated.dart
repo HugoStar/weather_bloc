@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:weather_repository/weather_repository.dart';
 
 class WeatherPopulated extends StatelessWidget {
-  const WeatherPopulated({
-    super.key,
-    required this.weather,
-    required this.onRefresh,
-  });
-
   final Weather weather;
   final ValueGetter<Future<void>> onRefresh;
+
+  const WeatherPopulated({
+    required this.onRefresh,
+    required this.weather,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -33,6 +33,12 @@ class WeatherPopulated extends StatelessWidget {
                       fontWeight: FontWeight.w200,
                     ),
                   ),
+                  Text(
+                    weather.temperature.toString(),
+                    style: theme.textTheme.headline2?.copyWith(
+                      fontWeight: FontWeight.w200,
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -44,11 +50,11 @@ class WeatherPopulated extends StatelessWidget {
 }
 
 class _WeatherIcon extends StatelessWidget {
-  const _WeatherIcon({required this.condition});
-
   static const _iconSize = 100.0;
 
   final WeatherCondition condition;
+
+  const _WeatherIcon({required this.condition});
 
   @override
   Widget build(BuildContext context) {
@@ -62,13 +68,23 @@ class _WeatherIcon extends StatelessWidget {
 extension on WeatherCondition {
   String get toEmoji {
     switch (this) {
-      case WeatherCondition.clear:
+      case WeatherCondition.clearSky:
         return '☀️';
-      case WeatherCondition.rainy:
+      case WeatherCondition.fewClouds:
+        return '☀️';
+      case WeatherCondition.scatteredClouds:
+        return '☀️';
+      case WeatherCondition.brokenClouds:
+        return '☀️';
+      case WeatherCondition.rain:
         return '🌧️';
-      case WeatherCondition.cloudy:
+      case WeatherCondition.showerRain:
+        return '🌧️';
+      case WeatherCondition.thunderstorm:
         return '☁️';
-      case WeatherCondition.snowy:
+      case WeatherCondition.snow:
+        return '🌨️';
+      case WeatherCondition.mist:
         return '🌨️';
       case WeatherCondition.unknown:
         return '❓';
