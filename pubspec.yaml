@@ -17,6 +17,8 @@ dependencies:
   freezed_annotation: ^2.1.0
   google_fonts: ^3.0.1
   json_annotation: ^4.6.0
+  sync_publish:
+    path: /Users/hugo/Documents/Flutter/feature/sync_publish
   weather_repository:
     path: packages/weather_repository
 
